@@ -53,7 +53,7 @@ function mostPopularVideosForDays(days){
     .where(
       'date_viewed',
       '>',
-      knexInstance.raw(`now() - '?? days'::INTERVAL`, days)
+      knexInstance.raw(`now() - '?? days'::INTERVAL`, days)//why not just make everything raw SQL
     )
     .from('whopipe_video_views')
     .groupBy('video_name','region')
